@@ -14,7 +14,13 @@ public class Pessoa {
 		return nome;
 	}
 	public void setNome(String nome) {
-		this.nome = nome;
+		if(nome.isBlank() || nome.length() < 3) {
+			throw new IllegalArgumentException("Nome inválido!");
+		}else {
+			this.nome = nome;
+			System.out.println("Nome alterado com sucesso!");
+		}
+
 	}
 	public String getCpf() {
 		return cpf;
